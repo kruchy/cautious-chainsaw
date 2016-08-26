@@ -19,37 +19,46 @@ public class PlusTest
     }
 
     @Test
-    public void testAdd()
+    public void shouldPass_TwoPlus()
     {
         int a = 5;
         int b = 2;
 
-        plus.addArgs(a, b);
+        plus.withArguments(a, b);
 
-        assertThat(plus.getResult(),is(equalTo(7)));
+        assertThat(plus.result(),is(equalTo(7)));
     }
 
     @Test
-    public void testOf()
+    public void shouldPass_staticPlus()
     {
         int a = 1 ;
         int b = 0;
         int c = 100;
 
         Plus of = Plus.of(a, b, c);
-        assertThat(of.getResult(),is(equalTo(a+b+c)));
+        assertThat(of.result(),is(equalTo(a+b+c)));
     }
 
     @Test
-    public void testNull()
+    public void shouldPass_null_twoPlus()
     {
-        Integer a = null;
         Integer b = 5;
         Integer c = 10;
 
-        plus.addArgs(a,b,c);
+        plus.withArguments(null,b,c);
 
-        assertThat(plus.getResult(),is(equalTo(b+c)));
+        assertThat(plus.result(),is(equalTo(b+c)));
+    }
+
+    @Test
+    public void shouldPass_onePlusOneMinus()
+    {
+        Integer a = 5;
+        Integer b = -6;
+
+        plus.withArguments(a,b);
+        assertThat(plus.result(),is(equalTo(-1)));
     }
 
 
