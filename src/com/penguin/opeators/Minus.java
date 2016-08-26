@@ -4,10 +4,6 @@ import java.util.function.BinaryOperator;
 
 public class Minus extends Operator
 {
-    public Minus()
-    {
-
-    }
 
     @Override
     public Integer result()
